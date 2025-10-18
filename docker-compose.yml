@@ -1,0 +1,8 @@
+services:
+  just-tag-all-bot:
+    build:
+      context: .
+      dockerfile: docker/Dockerfile
+    container_name: JustTagAllBot
+    env_file: ./s.env
+    restart: unless-stopped
