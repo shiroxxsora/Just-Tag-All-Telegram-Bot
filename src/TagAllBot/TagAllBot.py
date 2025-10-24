@@ -1,4 +1,5 @@
 from os import getenv
+import random
 
 from aiogram import Bot, Dispatcher
 from aiogram.client.default import DefaultBotProperties
@@ -10,7 +11,6 @@ TOKEN = getenv('TOKEN')
 
 dp = Dispatcher()
 
-
 @dp.message(Command('all'))
 async def command_all_handler(message: Message) -> None:
     """
@@ -19,20 +19,27 @@ async def command_all_handler(message: Message) -> None:
     try:
         bot = message.bot
         members = await bot.get_chat_administrators(message.chat.id)
-
+        
         message_text = ''
         for member in members:
             if member.user.username:
                 message_text += f'@{member.user.username} '
-
+        
         if message_text:
             await message.answer(message_text)
         else:
             await message.answer("Не удалось получить список участников")
-
+            
     except Exception as e:
         await message.answer(f"Ошибка: {str(e)}")
 
+@dp.message(Command('random'))
+async def command_random_handler(message: Message) -> None:
+    """
+    This handler receives messages with `/random` command
+    """
+    decision = random.choice(["Идти на пару", "Не идти на пару"])
+    await message.answer(f"🎲 Решение: {decision}")
 
 async def start() -> None:
     print("Starting Tag all telegram bot...")
