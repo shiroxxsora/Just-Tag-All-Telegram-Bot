@@ -16,4 +16,5 @@ async def start() -> None:
     for router in get_routers(bot):
         dp.include_router(router)
 
+    await bot.delete_webhook(drop_pending_updates=True)
     await dp.start_polling(bot)

@@ -4,9 +4,16 @@
 
 ## Запуск
 
+Скопируй `env.example` в `.env` и заполни переменные:
+
+```bash
+cp env.example .env
+# отредактируй .env: TOKEN, при необходимости OPENROUTER_API_KEY
+```
+
 ```bash
 python3 -m venv .venv
-source .venv/bin/activate   # Windows: .venv\Scripts\activate
+source .venv\Scripts\activate   # Windows: .venv\Scripts\activate  .venv/bin/activate
 pip install -e .
 
 python src/start.py
