@@ -10,4 +10,9 @@ def _get_token() -> str:
     return value
 
 
+def _get_openrouter_key() -> str | None:
+    return getenv("OPENROUTER_API_KEY")
+
+
 TOKEN: str = _get_token()
+OPENROUTER_API_KEY: str | None = _get_openrouter_key()

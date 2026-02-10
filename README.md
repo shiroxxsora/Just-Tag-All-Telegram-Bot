@@ -9,7 +9,6 @@ python3 -m venv .venv
 source .venv/bin/activate   # Windows: .venv\Scripts\activate
 pip install -e .
 
-export TOKEN=your_bot_token
 python src/start.py
 ```
 

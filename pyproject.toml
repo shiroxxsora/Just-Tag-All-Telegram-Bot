@@ -5,6 +5,8 @@ description = "Telegram bot for tagging and LLM features"
 requires-python = ">=3.10"
 dependencies = [
     "aiogram",
+    "httpx",
+    "python-dotenv",
 ]
 
 [build-system]
