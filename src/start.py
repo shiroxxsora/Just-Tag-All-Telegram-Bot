@@ -1,5 +1,18 @@
 import asyncio
-import TagAllBot.TagAllBot as TagAllBot
+import logging
+from pathlib import Path
 
-if __name__ == '__main__':
-    asyncio.run(TagAllBot.start())
+from dotenv import load_dotenv
+
+load_dotenv(Path(__file__).resolve().parent.parent / ".env")
+
+logging.basicConfig(
+    level=logging.INFO,
+    format="%(asctime)s [%(levelname)s] %(name)s: %(message)s",
+    datefmt="%Y-%m-%d %H:%M:%S",
+)
+
+from tagallbot.app import start
+
+if __name__ == "__main__":
+    asyncio.run(start())
